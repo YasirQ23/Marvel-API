@@ -1,0 +1,39 @@
+{% extends 'components/layout.html' %}
+
+{% block content %}
+<div class="card-deck">
+    <div class="card">
+      <img src={{ poke_list['Squirtle'].pic }} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ poke_list['Squirtle'].name }}</h5>
+        <p class="card-text"> Type: {{ poke_list['Squirtle'].type }} </p>
+        <p class="card-text">Abilities: {{ poke_list['Squirtle'].ability }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ poke_list['Squirtle'].weight }} lbs</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src= {{ poke_list['Wartortle'].pic }} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ poke_list['Wartortle'].name }}</h5>
+        <p class="card-text">Type: {{ poke_list['Wartortle'].type }}</p>
+        <p class="card-text">Abilities: {{ poke_list['Wartortle'].ability }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ poke_list['Wartortle'].weight }} lbs</small>
+      </div>
+    </div>
+    <div class="card">
+      <img src={{ poke_list['Blastoise'].pic }} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ poke_list['Blastoise'].name }}</h5>
+        <p class="card-text"> Type: {{ poke_list['Blastoise'].type }} </p>
+        <p class="card-text">Abilities: {{ poke_list['Blastoise'].ability }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ poke_list['Blastoise'].weight }} lbs</small>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
