@@ -35,5 +35,15 @@ def lib_creation():
         poke_card = Pokemon_Info(i)
         poke_card.getandlabel()
         poke_card.sort_poke()
-        poke_list[poke_card.name] = poke_card
+        poke_list[i] = poke_card
+    for i in range(152,161):
+        poke_card = Pokemon_Info(i)
+        poke_card.getandlabel()
+        poke_card.sort_poke()
+        poke_list[i] = poke_card
+    for i in range(252,261):
+        poke_card = Pokemon_Info(i)
+        poke_card.getandlabel()
+        poke_card.sort_poke()
+        poke_list[i] = poke_card
     return poke_list

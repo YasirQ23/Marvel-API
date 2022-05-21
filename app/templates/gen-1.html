@@ -1,0 +1,42 @@
+{% extends 'components/layout.html' %}
+
+{% block content %}
+{% for n in range(1,9,3) %}
+<div class="card-deck">
+  <div class="card">
+    <img src={{ poke_list[n].pic }} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ poke_list[n].name }}</h5>
+      <p class="card-text">Type: {{ poke_list[n].type }} </p>
+      <p class="card-text">Abilities: {{ poke_list[n].ability }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ poke_list[n].weight }} lbs</small>
+    </div>
+  </div>
+  <div class="card">
+    <img src={{ poke_list[n+1].pic }} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ poke_list[n+1].name }}</h5>
+      <p class="card-text">Type: {{ poke_list[n+1].type }} </p>
+      <p class="card-text">Abilities: {{ poke_list[n+1].ability }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ poke_list[n+1].weight }} lbs</small>
+    </div>
+  </div>
+  <div class="card">
+    <img src={{ poke_list[n+2].pic }} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ poke_list[n+2].name }}</h5>
+      <p class="card-text">Type: {{ poke_list[n+2].type }} </p>
+      <p class="card-text">Abilities: {{ poke_list[n+2].ability }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ poke_list[n+2].weight }} lbs</small>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
