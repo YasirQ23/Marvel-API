@@ -5,7 +5,7 @@ from flask import render_template
 import requests as r
 from .services import lib_creation
 
-@app.route('/home')
+@app.route('/')
 def creation():
     poke_list=lib_creation()
     return render_template('index.html',poke_list=poke_list)
