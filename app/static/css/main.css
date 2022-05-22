@@ -1,5 +1,5 @@
 body {
-    background-color: coral;
+    background-color: rgb(42, 117, 187);
     margin: 0;
     padding: 0;
 }
@@ -15,4 +15,10 @@ body {
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 20px;
+}
+
+.navbar {
+    background-color:rgb(255, 203, 5);
+    font-size: large;
+    text-shadow: 1.5px 0 white, 0 1.5px white, 1.5px 0 white, 0 1.5px white;
 }

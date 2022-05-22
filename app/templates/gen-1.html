@@ -7,8 +7,8 @@
     <img src={{ poke_list[n].pic }} class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ poke_list[n].name }}</h5>
-      <p class="card-text">Type: {{ poke_list[n].type }} </p>
-      <p class="card-text">Abilities: {{ poke_list[n].ability }}</p>
+      <p class="card-text">Type: {% for i in poke_list[n].type %} {{ i }} {% endfor %}</p>
+      <p class="card-text">Abilities: {% for i in poke_list[n].ability %} {{ i }} {% endfor %}</p>
     </div>
     <div class="card-footer">
       <small class="text-muted">{{ poke_list[n].weight }} lbs</small>
@@ -18,8 +18,8 @@
     <img src={{ poke_list[n+1].pic }} class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ poke_list[n+1].name }}</h5>
-      <p class="card-text">Type: {{ poke_list[n+1].type }} </p>
-      <p class="card-text">Abilities: {{ poke_list[n+1].ability }}</p>
+      <p class="card-text">Type: {% for i in poke_list[n].type %} {{ i }} {% endfor %}</p>
+      <p class="card-text">Abilities: {% for i in poke_list[n].ability %} {{ i }} {% endfor %}</p>
     </div>
     <div class="card-footer">
       <small class="text-muted">{{ poke_list[n+1].weight }} lbs</small>
@@ -29,8 +29,8 @@
     <img src={{ poke_list[n+2].pic }} class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ poke_list[n+2].name }}</h5>
-      <p class="card-text">Type: {{ poke_list[n+2].type }} </p>
-      <p class="card-text">Abilities: {{ poke_list[n+2].ability }}</p>
+      <p class="card-text">Type: {% for i in poke_list[n].type %} {{ i }} {% endfor %}</p>
+      <p class="card-text">Abilities: {% for i in poke_list[n].ability %} {{ i }} {% endfor %}</p>
     </div>
     <div class="card-footer">
       <small class="text-muted">{{ poke_list[n+2].weight }} lbs</small>
