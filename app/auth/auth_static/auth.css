@@ -5,22 +5,22 @@ body {
 }
 
 .card {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: auto;
+    margin-top: 5%;
+    align-items: center;
     border-radius: 40px;
-
-}
-
-.card-deck {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
 }
 
 .navbar {
     background-color:rgb(255, 203, 5);
     font-size: large;
     text-shadow: 1.5px 0 white, 0 1.5px white, 1.5px 0 white, 0 1.5px white;
+}
+
+.signinimg{
+    margin-top: 7%;
+    width:324px;
+    height: 120px;
 }
 
 #signin{
