@@ -22,7 +22,7 @@ def register():
             print(form.data)
             print(form.email.data)
             flash('Welcome! Thank you for registering!', 'info')
-            return redirect(url_for('home'))
+            return redirect(url_for('auth.register'))
         else:
             flash('Sorry, passwords do not match. Please try again.', 'danger')
             return redirect(url_for('auth.register'))
