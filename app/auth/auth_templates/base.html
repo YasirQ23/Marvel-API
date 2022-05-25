@@ -30,14 +30,25 @@
             </li>
         </ul>
         <ul id='signin' class="navbar-nav">
+            {% if current_user.is_authenticated %}
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('auth.login') }}">Sign In<span class="sr-only">(current)</span></a>
+              <a class="nav-link">{{ "{}".format(current_user.username) }}</a>
             </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('auth.register') }}">Register<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
             </li>
+            {% else %}
+          </ul>
+          <ul id='signin' class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('auth.login') }}">Sign In<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for('auth.register') }}">Register<span class="sr-only">(current)</span></a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
