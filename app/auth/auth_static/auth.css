@@ -25,5 +25,9 @@ body {
 }
 
 #signin{
-    margin-left: 63vw;
+    margin-left: 2vw;
+}
+
+#signedin{
+    margin-left: 60vw;
 }

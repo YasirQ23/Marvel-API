@@ -26,7 +26,7 @@ class User(db.Model, UserMixin):
     created = db.Column(db.DateTime, default=datetime.utcnow())
 
     def __init__(self, username, email, password, first_name, last_name):
-        self.username = username
+        self.username = username.title()
         self.email = email.lower()
         self.first_name = first_name.title()
         self.last_name = last_name.title()
