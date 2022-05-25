@@ -10,6 +10,8 @@ from .authforms import RegistrationForm, LoginForm
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if current_user.is_authenticated:
+        return redirect(url_for('creation'))
     if request.method == 'POST':
         if form.validate_on_submit():
             print('formdata:', form.username.data, form.password.data)
@@ -27,6 +29,8 @@ def login():
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
+    if current_user.is_authenticated:
+        return redirect(url_for('creation'))
     if request.method == 'POST':
         if form.validate_on_submit():
             print('formdata:', form.data)
