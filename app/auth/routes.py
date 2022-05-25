@@ -15,7 +15,7 @@ def login():
     if request.method == 'POST':
         if form.validate_on_submit():
             print('formdata:', form.username.data, form.password.data)
-            user = User.query.filter_by(username=form.username.data).first()
+            user = User.query.filter_by(username_id=form.username.data.lower()).first()
             print('user object from database?', user)
             if user and check_password_hash(user.password, form.password.data):
                 login_user(user)
