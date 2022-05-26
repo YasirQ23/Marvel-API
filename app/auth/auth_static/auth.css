@@ -31,3 +31,8 @@ body {
 #signedin{
     margin-left: 53vw;
 }
+
+.bcard-img-top{
+    width: 400px;
+    height: 450px;
+}
