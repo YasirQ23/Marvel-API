@@ -27,6 +27,7 @@ class User(db.Model, UserMixin):
     wins = db.Column(db.Integer())
     losses = db.Column(db.Integer())
     created = db.Column(db.DateTime, default=datetime.utcnow())
+    api_token = db.Column(db.String(100))
 
     def __init__(self, username, email, password, first_name, last_name):
         self.username_id = username.lower()
