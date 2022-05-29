@@ -57,6 +57,7 @@ class MarvelCharacters(db.Model):
         self.type = dict['description']
         self.ability = dict['comics appeared in']
         self.weight = dict['super power']
+        self.image = dict['image']
 
     def to_dict(self):
         return {

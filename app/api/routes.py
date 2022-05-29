@@ -21,7 +21,7 @@ def MarvelCharactersName(name):
 
 
 @api.route('/create', methods=['POST'])
-@token_required
+# @token_required
 def createMarvelCharacters():
     try:
         newdict = request.get_json()
