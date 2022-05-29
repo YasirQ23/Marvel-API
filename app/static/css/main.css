@@ -1,32 +1,14 @@
 body {
-    background-color: rgb(42, 117, 187);
+    background-color: rgb(81, 140, 202);
     margin: 0;
     padding: 0;
 }
 
-.card {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 40px;
-
-}
-
-.card-deck {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
-}
-
 .navbar {
-    background-color:rgb(255, 203, 5);
-    font-size: large;
+    background-color: rgb(247, 143, 63);
     text-shadow: 1.5px 0 white, 0 1.5px white, 1.5px 0 white, 0 1.5px white;
 }
 
-#signin{
-    margin-left: 2vw;
-}
-
-#signedin{
-    margin-left: 53vw;
+.navbar-brand {
+    font-size: 23px;
 }

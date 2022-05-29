@@ -11,7 +11,7 @@ from .authforms import RegistrationForm, LoginForm
 def login():
     form = LoginForm()
     if current_user.is_authenticated:
-        return redirect(url_for('creation'))
+        return redirect(url_for('home'))
     if request.method == 'POST':
         if form.validate_on_submit():
             print('formdata:', form.username.data, form.password.data)
@@ -21,7 +21,7 @@ def login():
                 login_user(user)
                 print('current user:', current_user.__dict__)
                 flash(f'Success - you have been signed in, {user.username}.', category='success')
-                return redirect(url_for('creation'))
+                return redirect(url_for('home'))
         flash(f'Incorrect username or password, please try again.', 'danger')
         return redirect(url_for('auth.login'))
     return render_template('login.html', form=form)
@@ -30,7 +30,7 @@ def login():
 def register():
     form = RegistrationForm()
     if current_user.is_authenticated:
-        return redirect(url_for('creation'))
+        return redirect(url_for('home'))
     if request.method == 'POST':
         if form.validate_on_submit():
             print('formdata:', form.data)
@@ -44,7 +44,7 @@ def register():
                 return redirect(url_for('auth.register'))
             login_user(newuser)
             flash(f'Welcome! Thank you for registering, {newuser.username}!', 'info')
-            return redirect(url_for('creation'))
+            return redirect(url_for('home'))
         else:
             flash('Sorry, passwords do not match. Please try again.', 'danger')
             return redirect(url_for('auth.register'))

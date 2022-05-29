@@ -7,7 +7,7 @@ from .services import lib_creation_gen1, lib_creation_gen2, lib_creation_gen3
 from flask_login import login_required
 
 @app.route('/')
-def creation():
+def home():
     return render_template('index.html')
 
 @app.route('/gen-1')

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Sign In{% endblock title %}
+{% block title %}Sign-In{% endblock title %}
 {% block content %}
-<div class="container">
+
+<div class="container-fluid d-flex justify-content-center">
     <div class="card" style="width: 400px;">
-        <img class='signinimg'
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
+        <img class='signinimg' src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg"
             class="card-img-top" alt="...">
-        <form class="p-3" method="POST" style="width: 280px;" >
+        <form class="p-3" method="POST" style="width: 280px;">
             {{ form.hidden_tag() }}
             <div class="form-group">
                 <fieldset id="username-field">
@@ -24,4 +24,4 @@
         </form>
     </div>
 </div>
-{% endblock %}
+{% endblock content %}
