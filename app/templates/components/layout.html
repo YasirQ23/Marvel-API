@@ -15,12 +15,15 @@
     {% if current_user.is_authenticated %}
     <nav class="navbar navbar-light">
         <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
-        <a class="navbar-brand ml-auto" href="">{{ "{}".format(current_user.username) }}</a>
+        <a class="navbar-brand" href="{{ url_for('mycollection') }}">My Collection</a>
+        <a class="navbar-brand" href="{{ url_for('marvelcharecters') }}">Marvel-Characters</a>
+        <a class="navbar-brand ml-auto">{{ "{}".format(current_user.username) }}</a>
         <a class="navbar-brand" href="{{ url_for('auth.logout') }}">Logout</a>
     </nav>
     {% else %}
     <nav class="navbar navbar-light">
         <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+        <a class="navbar-brand" href="{{ url_for('marvelcharecters') }}">Marvel-Characters</a>
         <a class="navbar-brand ml-auto" href="{{ url_for('auth.login') }}">Sign-In</a>
         <a class="navbar-brand" href="{{ url_for('auth.register') }}">Register</a>
     </nav>

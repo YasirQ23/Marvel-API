@@ -4,6 +4,7 @@ from uuid import uuid4
 from datetime import datetime
 from flask_login import LoginManager, UserMixin
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import relationship, backref
 
 db = SQLAlchemy()
 
@@ -24,10 +25,9 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(255), nullable=False)
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
-    wins = db.Column(db.Integer())
-    losses = db.Column(db.Integer())
     created = db.Column(db.DateTime, default=datetime.utcnow())
     api_token = db.Column(db.String(100))
+    marvelcharacters = relationship("MarvelCharacters", secondary="colections")
 
     def __init__(self, username, email, password, first_name, last_name):
         self.username_id = username.lower()
@@ -37,34 +37,44 @@ class User(db.Model, UserMixin):
         self.last_name = last_name.title()
         self.id = str(uuid4())
         self.password = generate_password_hash(password)
-        self.wins = 0
-        self.losses = 0
 
 
-class CustomPokemon(db.Model):
+
+
+class MarvelCharacters(db.Model):
     id = db.Column(db.String(40), primary_key=True)
     name = db.Column(db.String(50), nullable=False, unique=True)
-    type = db.Column(db.String(255), nullable=False)
-    ability = db.Column(db.String(50))
-    weight = db.Column(db.Integer)
+    description = db.Column(db.String(255), nullable=False)
+    comics_appeared_in = db.Column(db.Integer)
+    super_power = db.Column(db.String(50))
     created_on = db.Column(db.DateTime, default=datetime.utcnow())
+    image = db.Column(db.String(255))
+    users = relationship("User", secondary="colections")
 
     def __init__(self, dict):
         self.id = str(uuid4())
         self.name = dict['name'].title()
-        self.type = dict['type']
-        self.ability = dict['ability']
-        self.weight = dict['weight']
+        self.type = dict['description']
+        self.ability = dict['comics appeared in']
+        self.weight = dict['super power']
 
     def to_dict(self):
         return {
             'id': self.id,
             'name': self.name,
-            'type': self.type,
-            'ability': self.ability,
-            'weight': self.weight,
+            'description': self.description,
+            'comics appeared in': self.comics_appeared_in,
+            'super power': self.super_power,
         }
+
 
     def from_dict(self, dict):
         for key in dict:
             getattr(self, key)
+
+class Colections(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.String, db.ForeignKey('user.id'))
+    marvelcharacters_id = db.Column(db.String, db.ForeignKey('marvel_characters.id'))
+    user = relationship(User, backref=backref("colections", cascade="all, delete-orphan"))
+    marvelcharacters = relationship(MarvelCharacters, backref=backref("colections", cascade="all, delete-orphan"))
