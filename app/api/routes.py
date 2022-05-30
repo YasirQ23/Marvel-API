@@ -14,7 +14,7 @@ def getMarvelCharacters():
 
 @api.route('/marvelcharacters/<string:name>', methods=['GET'])
 def MarvelCharactersName(name):
-    print(name)
+
     marvelcharacters = MarvelCharacters.query.filter_by(name=name.title()).first()
     if marvelcharacters:
         return jsonify(marvelcharacters.to_dict()), 200

@@ -14,13 +14,10 @@ def login():
         return redirect(url_for('home'))
     if request.method == 'POST':
         if form.validate_on_submit():
-            print('formdata:', form.username.data, form.password.data)
             user = User.query.filter_by(username_id=form.username.data.lower()).first()
-            print('user object from database?', user)
             if user and check_password_hash(user.password, form.password.data):
                 login_user(user)
-                print('current user:', current_user.__dict__)
-                flash(f'Success - you have been signed in, {user.username}.', category='success')
+                flash(f'You Have Been Signed In, {user.username}.', category='success')
                 return redirect(url_for('home'))
         flash(f'Incorrect username or password, please try again.', 'danger')
         return redirect(url_for('auth.login'))
@@ -33,9 +30,7 @@ def register():
         return redirect(url_for('home'))
     if request.method == 'POST':
         if form.validate_on_submit():
-            print('formdata:', form.data)
             newuser = User(form.username.data, form.email.data, form.password.data, form.first_name.data, form.last_name.data)
-            print('newly created user object:', newuser)
             try:
                 db.session.add(newuser)
                 db.session.commit()
