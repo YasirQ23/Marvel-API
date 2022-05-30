@@ -10,8 +10,19 @@
         <p class="card-text">{{ character.description }}</p>
         <p class="card-text">Superpowers: {{ character.super_power }}</p>
         <p class="card-text"><small class="text-muted">{{ character.comics_appeared_in }} Comic Appearances</small></p>
-        <a href="" class="btn btn-primary">Go somewhere</a>
       </div>
+      <a href="delete/{{ character.id }}" class="btn btn-primary m-5">Remove Character</a>
+    </div>
+    {% endfor %}
+    {% for i in range(3-characters|length)%}
+    <div class="card">
+      <img src="https://kanka-user-assets.s3.eu-central-1.amazonaws.com/notes/5cb8ac036c7ac_636207488454374266-1324134898_silhouette-man.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Empty Slot</h5>
+        <p class="card-text"></p>
+        <p class="card-text"><small class="text-muted"></small></p>
+      </div>
+      <a href="marvelcharecters" class="btn btn-primary m-5">Add Character</a>
     </div>
     {% endfor %}
   </div>

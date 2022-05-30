@@ -80,3 +80,7 @@ class Colections(db.Model):
     marvelcharacters_id = db.Column(db.String, db.ForeignKey('marvel_characters.id'))
     user = relationship(User, backref=backref("colections", cascade="all, delete-orphan"))
     marvelcharacters = relationship(MarvelCharacters, backref=backref("colections", cascade="all, delete-orphan"))
+
+    def __init__(self, user_id, marvelcharacters_id):
+        self.user_id = user_id
+        self.marvelcharacters_id = marvelcharacters_id

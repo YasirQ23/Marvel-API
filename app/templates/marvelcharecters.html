@@ -10,8 +10,8 @@
       <p class="card-text">{{ character.description }}</p>
       <p class="card-text">Superpowers: {{ character.super_power }}</p>
       <p class="card-text"><small class="text-muted">{{ character.comics_appeared_in }} Comic Appearances</small></p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
+    <a href="add/{{ character.id }}" class="btn btn-primary">Add {{ character.name }} To Collection</a>
   </div>
   {% endfor %}
 </div>

@@ -10,10 +10,3 @@ def col_creation():
         characters.append(MarvelCharacters.query.filter_by(id=x).first())
     return characters
 
-
-
-
-
-
-
-
