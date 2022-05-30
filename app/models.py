@@ -66,7 +66,7 @@ class MarvelCharacters(db.Model):
             'description': self.description,
             'comics appeared in': self.comics_appeared_in,
             'super power': self.super_power,
-            'image': self.imageus
+            'image': self.image
         }
 
 

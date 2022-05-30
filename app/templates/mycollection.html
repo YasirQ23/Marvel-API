@@ -1,5 +1,18 @@
 {% extends 'components/layout.html' %}
 {% block title %}Home{% endblock title %}
 {% block content %}
-<p>{{ characters }}</p>
+<div class="card-deck m-4">
+    {% for character in characters %}
+    <div class="card">
+      <img src="{{ character.image }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ character.name}}</h5>
+        <p class="card-text">{{ character.description }}</p>
+        <p class="card-text">Superpowers: {{ character.super_power }}</p>
+        <p class="card-text"><small class="text-muted">{{ character.comics_appeared_in }} Comic Appearances</small></p>
+        <a href="" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 {% endblock content %}
