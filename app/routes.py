@@ -14,8 +14,10 @@ def home():
 
 @app.route('/mycollection')
 def mycollection():
-    characters = col_creation()
-    return render_template('mycollection.html', characters=characters)
+    if current_user.is_authenticated:
+        characters = col_creation()
+        return render_template('mycollection.html', characters=characters)
+    return redirect(url_for('auth.login'))
 
 @app.route('/marvelcharecters')
 def marvelcharecters():
