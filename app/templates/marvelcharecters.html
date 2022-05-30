@@ -1,11 +1,18 @@
 {% extends 'components/layout.html' %}
 {% block title %}Home{% endblock title %}
 {% block content %}
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Welcome To The Marvel Collections</h1>
-      <p class="lead">Start your collection today by registering or sign in to view your collections.</p>
+<div class="card-deck m-4">
+  {% for character in characters %}
+  <div class="card">
+    <img src="{{ character.image }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ character.name}}</h5>
+      <p class="card-text">{{ character.description }}</p>
+      <p class="card-text">Superpowers: {{ character.super_power }}</p>
+      <p class="card-text"><small class="text-muted">{{ character.comics_appeared_in }} Comic Appearances</small></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>
-
+  {% endfor %}
+</div>
 {% endblock content %}

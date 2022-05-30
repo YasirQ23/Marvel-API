@@ -25,9 +25,7 @@ def MarvelCharactersName(name):
 def createMarvelCharacters():
     try:
         newdict = request.get_json()
-        print(newdict)
         a = MarvelCharacters(newdict)
-        print(a)
     except:
         return jsonify({'error': 'improper request or body data'}), 400
     try:

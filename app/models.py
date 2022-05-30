@@ -54,9 +54,9 @@ class MarvelCharacters(db.Model):
     def __init__(self, dict):
         self.id = str(uuid4())
         self.name = dict['name'].title()
-        self.type = dict['description']
-        self.ability = dict['comics appeared in']
-        self.weight = dict['super power']
+        self.description = dict['description']
+        self.comics_appeared_in = dict['comics appeared in']
+        self.super_power = dict['super power']
         self.image = dict['image']
 
     def to_dict(self):
@@ -66,6 +66,7 @@ class MarvelCharacters(db.Model):
             'description': self.description,
             'comics appeared in': self.comics_appeared_in,
             'super power': self.super_power,
+            'image': self.imageus
         }
 
 

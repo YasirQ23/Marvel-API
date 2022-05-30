@@ -1,9 +1,9 @@
 from app import app
-
+from app.models import Colections, User, MarvelCharacters
 from flask import render_template, flash
+from flask_login import current_user
 
 import requests as r
-from .services import lib_creation_gen1
 from flask_login import login_required
 
 @app.route('/')
@@ -12,9 +12,11 @@ def home():
 
 @app.route('/mycollection')
 def mycollection():
-    return render_template('mycollection.html')
+    characters = MarvelCharacters.query.all()
+    return render_template('mycollection.html', characters=characters)
 
 @app.route('/marvelcharecters')
 def marvelcharecters():
-    return render_template('marvelcharecters.html')
+    characters = MarvelCharacters.query.all()
+    return render_template('marvelcharecters.html', characters=characters)
 
