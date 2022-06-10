@@ -2,11 +2,13 @@ from flask import Flask
 from config import Config
 from .auth.routes import auth
 from .api.routes import api
+from flask_cors import CORS
 
 from .models import db, login
 from flask_migrate import Migrate
 
 app = Flask(__name__)
+CORS(app)
 
 app.config.from_object(Config)
 
