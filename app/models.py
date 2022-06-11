@@ -39,8 +39,6 @@ class User(db.Model, UserMixin):
         self.password = generate_password_hash(password)
 
 
-
-
 class MarvelCharacters(db.Model):
     id = db.Column(db.String(40), primary_key=True)
     name = db.Column(db.String(50), nullable=False, unique=True)
@@ -49,14 +47,16 @@ class MarvelCharacters(db.Model):
     super_power = db.Column(db.String(50))
     created_on = db.Column(db.DateTime, default=datetime.utcnow())
     image = db.Column(db.String(255))
+    hours_available = db.Column(db.Integer)
+    hourly_cost = db.Column(db.Integer)
     users = relationship("User", secondary="colections")
 
     def __init__(self, dict):
         self.id = str(uuid4())
         self.name = dict['name'].title()
         self.description = dict['description']
-        self.comics_appeared_in = dict['comics appeared in']
-        self.super_power = dict['super power']
+        self.comics_appeared_in = dict['comics _appeared_in']
+        self.super_power = dict['super_power']
         self.image = dict['image']
 
     def to_dict(self):
@@ -64,22 +64,27 @@ class MarvelCharacters(db.Model):
             'id': self.id,
             'name': self.name,
             'description': self.description,
-            'comics appeared in': self.comics_appeared_in,
-            'super power': self.super_power,
-            'image': self.image
+            'comics_appeared_in': self.comics_appeared_in,
+            'super_power': self.super_power,
+            'image': self.image,
+            'hourly_cost': self.hourly_cost,
+            'hours_available': self.hours_available
         }
-
 
     def from_dict(self, dict):
         for key in dict:
             getattr(self, key)
 
+
 class Colections(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.String, db.ForeignKey('user.id'))
-    marvelcharacters_id = db.Column(db.String, db.ForeignKey('marvel_characters.id'))
-    user = relationship(User, backref=backref("colections", cascade="all, delete-orphan"))
-    marvelcharacters = relationship(MarvelCharacters, backref=backref("colections", cascade="all, delete-orphan"))
+    marvelcharacters_id = db.Column(
+        db.String, db.ForeignKey('marvel_characters.id'))
+    user = relationship(User, backref=backref(
+        "colections", cascade="all, delete-orphan"))
+    marvelcharacters = relationship(MarvelCharacters, backref=backref(
+        "colections", cascade="all, delete-orphan"))
 
     def __init__(self, user_id, marvelcharacters_id):
         self.user_id = user_id
